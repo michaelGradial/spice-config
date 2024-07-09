@@ -1,25 +1,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd
+  name: argo-cd
   namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
 spec:
-  project: argocd
+  project: default
   source:
-    helm:
-      version: v3
-    path: argocd/argocd-install/argo-cd
     repoURL: https://github.com/michaelGradial/spice-config.git
+    path: argocd/argocd-install/argo-cd
     targetRevision: HEAD
   destination:
-    namespace: argocd
     server: https://kubernetes.default.svc
+    namespace: argocd
   syncPolicy:
-    automated: 
-      prune: false
+    automated:
       selfHeal: true
-    syncOptions:
-    - CreateNamespace=true
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
