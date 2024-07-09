@@ -29,7 +29,7 @@ metadata:
 spec:
   project: argocd
   source:
-    path: argocd/argocd-install/argo-cd-applications
+    path: argocd/argocd-applications
     repoURL: https://github.com/michaelGradial/spice-config.git
     targetRevision: HEAD
     directory:
