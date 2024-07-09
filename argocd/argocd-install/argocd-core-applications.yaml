@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argo-cd
+  name: argocd
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -24,7 +24,7 @@ metadata:
   name: argocd-applications
   namespace: argocd
 spec:
-  project: argocd
+  project: default
   source:
     path: argocd/argocd-applications
     repoURL: https://github.com/michaelGradial/spice-config.git
